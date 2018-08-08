@@ -1,0 +1,1 @@
+export const test = console.log('I\'m the path, the truth and the life')
