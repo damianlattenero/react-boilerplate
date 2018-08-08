@@ -2,4 +2,5 @@ roadmap
 node_modules/**
 .vscode/**
 bundle.js
+.idea/inspectionProfiles/
 .idea/
