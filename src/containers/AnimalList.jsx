@@ -9,7 +9,7 @@ class AnimalList extends Component {
 
     renderAnimalList() {
         return this.props.animals.map( animal => {
-            console.log('animalListRender', this);
+            // console.log('animalListRender', this);
             return (
                 <li
                     onClick={() => {this.props.selectAnimal(animal)}}
@@ -22,7 +22,7 @@ class AnimalList extends Component {
     }
 
     render() {
-        console.log('animal list', this);
+        // console.log('animal list', this);
         return(
             <ul className={"list-group"}>
                 {this.renderAnimalList()}
