@@ -1,0 +1,58 @@
+{
+  "animals": [
+    {
+      "id": 1,
+      "species": "ape",
+      "name": "hans",
+      "gender": "m",
+      "age": 23
+    },
+    {
+      "id": 2,
+      "species": "tortoise",
+      "name": "heide",
+      "gender": "f",
+      "age": 89
+    },
+    {
+      "id": 3,
+      "species": "cat",
+      "name": "mini",
+      "gender": "f",
+      "age": 12
+    },
+    {
+      "id": 4,
+      "species": "shark",
+      "name": "gert",
+      "gender": "m",
+      "age": 4
+    },
+    {
+      "id": 5,
+      "species": "parrot",
+      "name": "lisa",
+      "gender": "f",
+      "age": 27
+    },
+    {
+      "id": 6,
+      "species": "dog",
+      "name": "chocolate",
+      "gender": "m",
+      "age": 6
+    }
+  ],
+  "zookeepers": [
+    {
+      "id": 1,
+      "name": "Jan Paul",
+      "salary": 15000
+    },
+    {
+      "id": 2,
+      "name": "Lola Thompson",
+      "salary": 18000
+    }
+  ]
+}
