@@ -1,12 +1,8 @@
+var counter = 0;
 var ID = {
     get: function() {
-        return `${Date.now()}-${ID.chr4()}-${ID.chr4()}-${ID.chr4()}-${ID.chr4()}`;
+        return `${Date.now()}-${++counter}`;
     },
-
-    chr4: function(){
-        return  Math.random().toString(16).slice(-4);
-    }
-
 };
 
 export default ID;
