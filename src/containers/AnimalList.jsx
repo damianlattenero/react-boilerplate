@@ -26,7 +26,7 @@ class AnimalList extends Component {
     //my methods
 
     renderAnimalList() {
-        return this.props.animals.map(animal => {
+        return this.props.animalList.map(animal => {
             // console.log('animalListRender', this);
             // var id = ID.get();
             // console.log('frikking id: ',id);
@@ -44,7 +44,7 @@ class AnimalList extends Component {
     //render method
 
     render() {
-        // console.log('animal list', this.props);
+        console.log('=)', this.props);
         if(_.isEmpty(this.props.animalList)){
             return <div>Loading...</div>
         }
