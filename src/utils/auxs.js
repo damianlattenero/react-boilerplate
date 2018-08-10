@@ -1,8 +1,8 @@
 var counter = 0;
 var ID = {
-    get: function() {
-        return `${Date.now()}-${++counter}`;
-    },
+    get: function () {
+        return ++counter;
+    }
 };
 
 export default ID;

@@ -10,6 +10,8 @@ class AnimalList extends Component {
     renderAnimalList() {
         return this.props.animals.map( animal => {
             // console.log('animalListRender', this);
+            // var id = ID.get();
+            // console.log('frikking id: ',id);
             return (
                 <li
                     onClick={() => {this.props.selectAnimal(animal)}}

@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+// import ID from "../utils/auxs";
 
 
 class AnimalDetails extends Component {
 
     render() {
-        console.log('from details', this);
+        // console.log('from details', this);
+        // console.log('id from details: ', ID.get());
         return (
             <div>
                 {!this.props.selectedAnimal ?
