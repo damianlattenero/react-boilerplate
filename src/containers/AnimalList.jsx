@@ -3,53 +3,81 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import ID from '../utils/auxs'
-import {selectAnimal} from '../actions/index';
+import {selectAnimal, getAnimalList} from '../actions/index';
+import _ from 'underscore';
 
 class AnimalList extends Component {
+    //constructor
+    constructor() {
+        super();
+    }
+
+    //lifecycle methods
+
+    componentWillMount() {
+        this.props.getAnimalList();
+    }
+    //
+    // componentDidMount(){
+    //     console.log('hello from did mount')
+    //     document.querySelectorAll('.foo')
+    // }
+
+    //my methods
 
     renderAnimalList() {
-        return this.props.animals.map( animal => {
+        return this.props.animals.map(animal => {
             // console.log('animalListRender', this);
             // var id = ID.get();
             // console.log('frikking id: ',id);
-            return (
-                <li
-                    onClick={() => {this.props.selectAnimal(animal)}}
-                    key={ID.get()}
-                    className={"list-group-item"}>
-                    <p>Animal name: {animal.name}</p>
-                </li>
-            )
+            return <li
+                onClick={() => {
+                    this.props.selectAnimal(animal)
+                }}
+                key={ID.get()}
+                className={"list-group-item"}>
+                <p>Animal name: {animal.name}</p>
+            </li>
         })
     }
 
+    //render method
+
     render() {
-        // console.log('animal list', this);
-        return(
-            <ul className={"list-group"}>
+        // console.log('animal list', this.props);
+        if(_.isEmpty(this.props.animalList)){
+            return <div>Loading...</div>
+        }
+        else{
+            return <ul className={"list-group"}>
                 {this.renderAnimalList()}
+                {/*<button*/}
+                {/*onClick={() => this.props.getAnimalList()}*/}
+                {/*className={"btn btn-info"}>*/}
+                {/*click me to fetch server*/}
+                {/*</button>*/}
             </ul>
-        )
+        }
     }
 }
 
 /**
- * @param state
- * that's a way to share state between parents and childs
+ * that's a way to share state between parents and children
  */
 
 function mapStateToProps(state) {
-/*    return {
-        name: 'bluebeard',
-        person: {
-            name: "damian chevere"
+    /*    return {
+            name: 'bluebeard',
+            person: {
+                name: "damian chevere"
+            }
         }
-    }
-*/
+    */
     // console.log('mapState', state)
     return {
-        animals: state.animalList,
-        selectedAnimal: state.selectedAnimal
+        animals: state.staticAnimalList,
+        selectedAnimal: state.selectedAnimal,
+        animalList: state.animalListFromReducer
     }
 }
 
@@ -64,7 +92,8 @@ function mapDispatchToProps(dispatch) {
          * to:
          */
 
-        selectAnimal: selectAnimal
+        selectAnimal,
+        getAnimalList
 
     }, dispatch)
 }

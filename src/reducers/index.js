@@ -1,12 +1,14 @@
 import {combineReducers} from 'redux';
 
-import animalReducer from './animalReducer'
+import staticAnimalReducer from './animalReducer'
 import selectedAnimalReducer from './selectedAnimalReducer'
+import fetchAnimalsReducer from "./fetchAnimalsReducer";
 
 const rootReducer = combineReducers({
    // state: ( state = {} ) => state
-    animalList: animalReducer,
-    selectedAnimal: selectedAnimalReducer
+    staticAnimalList: staticAnimalReducer,
+    selectedAnimal: selectedAnimalReducer,
+    animalListFromReducer: fetchAnimalsReducer
 });
 
 export default rootReducer;

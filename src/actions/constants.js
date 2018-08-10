@@ -1,0 +1,4 @@
+export const TYPE = {
+    ANIMAL_CLICKED: 'ANIMAL_CLICKED',
+    FETCH_ANIMAL: 'FETCH_ANIMAL'
+};

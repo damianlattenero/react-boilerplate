@@ -1,3 +1,6 @@
+import axios from 'axios';
+import {TYPE} from "./constants";
+
 export function selectAnimal(animal) {
     return {
         type: TYPE.ANIMAL_CLICKED,
@@ -5,17 +8,24 @@ export function selectAnimal(animal) {
     }
 }
 
-var TYPE = {
-    ANIMAL_CLICKED: 'ANIMAL_CLICKED',
-    FETCH_ANIMAL: 'FETCH_ANIMAL'
-};
+//GET function, get animal list
+export function getAnimalList() {
+    // const url = 'http://localhost:3000/animals';
+    // const request = axios.get(url);
+    // return {
+    //     type: TYPE.FETCH_ANIMAL,
+    //     payload: request
+    // }
 
-export function fetchAnimals() {
-    //do some AJAX stuff -> let response = getDataBase.data
+    return function (dispatch) {
+        const url     = 'http://localhost:3000/animals';
+        const request = axios.get(url);
 
-    return {
-        type: TYPE.FETCH_ANIMAL,
+        request.then( response => {
+            dispatch({
+                type: TYPE.FETCH_ANIMAL,
+                payload: response.data
+            })
+        }).catch(error => console.log(error))
     }
 }
-
-export default TYPE;
