@@ -1,21 +1,22 @@
 module.exports = function () {
     let faker = require('faker');
-    let _ = require('lodash');
+    let _     = require('lodash');
+    let ID    = require("../src/utils/auxs");
 
     return {
-        animals: _.times(100, function (n) {
+        animals: _.times(100, function () {
             var animal_gender = faker.helpers.randomize(['m', 'f']);
             return {
-                id: n,
+                id: ID.get(),
                 gender: animal_gender,
-                name: faker.name.firstName(animal_gender === 'm' ? 0 : 1),
+                name: faker.name.firstName(genderToNum(animal_gender)),
                 species: faker.helpers.randomize(species),
                 age: faker.random.number(100)
             }
         }),
-        zookeepers: _.times(20, function (n) {
+        zookeepers: _.times(20, function () {
             return {
-                id: n,
+                id: ID.get(),
                 name: {
                     firstName: faker.name.firstName(),
                     lastName: faker.name.lastName()

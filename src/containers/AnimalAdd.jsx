@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import _ from 'underscore';
 
 class AnimalAdd extends Component {
 
@@ -23,14 +22,14 @@ class AnimalAdd extends Component {
     /**
      * The magic of functional programming
      * @param propertyName
-     * @returns {a Function that update the property of the state}
+     * @returns {a -Function-: update the property of the state}
      */
     onPropertieChange = (propertyName) => (event) => {
-        console.log("event occ", event);
+        // console.log("event occ", event);
         var newState = {};
         const value = event.target.value;
         newState[propertyName] = this.parseProperty(propertyName, value);
-        console.log("object set", newState);
+        // console.log("object set", newState);
         this.setState(newState);
     };
 
@@ -43,9 +42,13 @@ class AnimalAdd extends Component {
         }
     };
 
+    onButtonSubmit = () => {
+        console.log("from button: ", this.state)
+    };
+
     render() {
 
-        console.log('animal component state', this.state);
+        // console.log('animal component state', this.state);
 
         return (
             <div className="form-group">
@@ -83,7 +86,11 @@ class AnimalAdd extends Component {
 
                 </form>
 
-                <button className="btn btn-primary">Create animal</button>
+                <button
+                    onClick={this.onButtonSubmit.bind(this)}
+                    className="btn btn-primary">
+                    Create animal
+                </button>
             </div>
         );
     }
