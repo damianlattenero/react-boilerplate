@@ -44,7 +44,7 @@ class AnimalList extends Component {
     //render method
 
     render() {
-        console.log('=)', this.props);
+        // console.log('=)', this.props);
         if(_.isEmpty(this.props.animalList)){
             return <div>Loading...</div>
         }

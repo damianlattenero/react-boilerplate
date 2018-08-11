@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {TYPE} from "./constants";
+import {TYPE} from "./type";
 
 export function selectAnimal(animal) {
     return {
