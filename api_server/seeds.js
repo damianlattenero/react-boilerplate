@@ -4,7 +4,7 @@ module.exports = function () {
     let ID    = require("../src/utils/auxs");
 
     return {
-        animals: _.times(100, function () {
+        animals: _.times(6, function () {
             var animal_gender = faker.helpers.randomize(['m', 'f']);
             return {
                 id: ID.get(),

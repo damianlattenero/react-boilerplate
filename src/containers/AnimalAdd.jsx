@@ -1,4 +1,9 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import {createAnimal} from "../actions";
+
 
 class AnimalAdd extends Component {
 
@@ -43,13 +48,12 @@ class AnimalAdd extends Component {
     };
 
     onButtonSubmit = () => {
-        console.log("from button: ", this.state)
+        console.log("from button: ", this.state);
+        this.props.createAnimal(this.state);
     };
 
     render() {
-
-        // console.log('animal component state', this.state);
-
+        // console.log('animal component props', this.props);
         return (
             <div className="form-group">
                 <form>
@@ -96,4 +100,12 @@ class AnimalAdd extends Component {
     }
 }
 
-export default AnimalAdd;
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({
+        // createAnimal: createAnimal
+        createAnimal
+    }, dispatch)
+}
+
+// export default AnimalAdd;
+export default connect(null, mapDispatchToProps)(AnimalAdd)

@@ -26,7 +26,8 @@ class AnimalList extends Component {
     //my methods
 
     renderAnimalList() {
-        return this.props.animalList.map(animal => {
+        // return this.props.animalList.map(animal => {
+        return _.map(this.props.animalList, animal => {
             // console.log('animalListRender', this);
             // var id = ID.get();
             // console.log('frikking id: ',id);

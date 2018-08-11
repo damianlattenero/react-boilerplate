@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {TYPE} from "./type";
-
+const url  = 'http://localhost:3000/animals';
 export function selectAnimal(animal) {
     return {
         type: TYPE.ANIMAL_CLICKED,
@@ -18,12 +18,24 @@ export function getAnimalList() {
     // }
 
     return function (dispatch) {
-        const url     = 'http://localhost:3000/animals';
         const request = axios.get(url);
 
         request.then( response => {
             dispatch({
                 type: TYPE.FETCH_ANIMAL,
+                payload: response.data
+            })
+        }).catch(error => console.log(error))
+    }
+}
+
+export function createAnimal(animal) {
+    return function (dispatch) {
+        const post = axios.post(url, animal);
+        post.then(response => {
+            console.log("response create animal: ", response);
+            dispatch({
+                type: TYPE.CREATE_ANIMAL,
                 payload: response.data
             })
         }).catch(error => console.log(error))
