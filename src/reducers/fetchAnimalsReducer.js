@@ -15,7 +15,7 @@ export default function (state = null, action) {
             // console.log("reducer delete animal state: ", state);
             if(action.payload === 200){
                 var newState = state.filter( element => {
-                    return element.id != action.id
+                    return element.id !== action.id
                 });
                 return newState;
             }
