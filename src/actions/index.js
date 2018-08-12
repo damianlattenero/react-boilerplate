@@ -33,11 +33,27 @@ export function createAnimal(animal) {
     return function (dispatch) {
         const post = axios.post(url, animal);
         post.then(response => {
-            console.log("response create animal: ", response);
+            // console.log("response create animal: ", response);
             dispatch({
                 type: TYPE.CREATE_ANIMAL,
                 payload: response.data
             })
         }).catch(error => console.log(error))
+    }
+}
+
+export function deleteAnimalById(id) {
+    return function (dispatch) {
+        const del = axios.delete(`${url}/${id}`);
+
+        del.then(response => {
+            dispatch({
+                type: TYPE.DELETE_ANIMAL,
+                payload: response.status,
+                id
+            })
+        }).catch(error => console.log(error))
+
+
     }
 }

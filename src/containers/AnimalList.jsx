@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import ID from '../utils/auxs'
-import {selectAnimal, getAnimalList} from '../actions/index';
+import {selectAnimal, getAnimalList, deleteAnimalById} from '../actions/index';
 import _ from 'underscore';
 
 class AnimalList extends Component {
@@ -25,6 +25,11 @@ class AnimalList extends Component {
 
     //my methods
 
+    onDeleteButtonClick(id){
+        // console.log("animal id is: ", id);
+        this.props.deleteAnimalById(id);
+    }
+
     renderAnimalList() {
         // return this.props.animalList.map(animal => {
         return _.map(this.props.animalList, animal => {
@@ -38,6 +43,11 @@ class AnimalList extends Component {
                 key={ID.get()}
                 className={"list-group-item"}>
                 <p>Animal name: {animal.name}</p>
+                <button
+                    onClick={() => this.onDeleteButtonClick(animal.id)}
+                    className="btn badge-danger">
+                    Delete
+                </button>
             </li>
         })
     }
@@ -94,7 +104,8 @@ function mapDispatchToProps(dispatch) {
          */
 
         selectAnimal,
-        getAnimalList
+        getAnimalList,
+        deleteAnimalById
 
     }, dispatch)
 }

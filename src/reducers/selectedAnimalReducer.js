@@ -3,7 +3,7 @@ import {TYPE} from "../actions/type";
 export default function(state=null, action) {
     switch (action.type) {
         case TYPE.ANIMAL_CLICKED:
-            console.log(action);
+            // console.log(action);
             return action.payload;
         default:
             return state
